@@ -1,0 +1,59 @@
+<header>
+    <div class="cabecalho">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button onclick="clickNone()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <img class="logo2" src="https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/logo.png" alt="logo2">
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+               <a class="navbar-brand" href="#"><img class="img-fluid grow logo" src="https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/logo.png" alt="Petabyte SHOP"></a>
+                <div class="lista_form">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" [formControl]="queryField" list="datalistOptions" type="search" placeholder="Buscar processadores memórias e muito mais!" aria-label="Search">
+                        <datalist id="datalistOptions">
+                            <option *ngFor="let sugestion of sugetionArray">{{sugestion}}</option>
+                        </datalist>
+                        <button class="btn btn-outline-success my-2 my-sm-0" (click) = "Search()" type="submit">Buscar</button>
+                    </form>
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item grow">
+                            <a class="nav-link" href="#">INÍCIO</a>
+                        </li>
+                        <li class="nav-item dropdown grow">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                HARDWARES
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="produtos?id=1">PROCESSADORES</a>
+                                <a class="dropdown-item" href="produtos?id=2">MEMÓRIAS</a>
+                                <a class="dropdown-item" href="produtos?id=3">PLACA DE VÍDEO</a>
+                                <a class="dropdown-item" href="produtos?id=4">PLACA MÃE</a>
+                                <a class="dropdown-item" href="produtos?id=5">HDD</a>
+                                <a class="dropdown-item" href="produtos?id=6">SSD</a>
+                            </div>
+                        </li>
+                        <li class="nav-item grow">
+                                <a class="nav-link" href="produtos?id=7">MONITORES</a>
+                        </li>
+                        <li class="nav-item grow">
+                            <a class="nav-link" href="produtos?id=8">ACESSÓRIOS</a>
+                        </li>
+                        <li class="nav-item grow">
+                            <a class="nav-link" href="sobre">SOBRE</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="acesso" id="none">
+                <div>
+                    <a href="/login"><img src="https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/login.png"></a>
+                        <a *ngIf="logado == false" class="text" id ="login" href="/login">Login</a>
+                        <a *ngIf="logado == true"  class="text" id="nome" href="#">{{cliente?.nome}}</a>
+                        <a *ngIf="logado == true" href="carrinho" id="carrinho" class="carrinho"><img src="https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/carrinho.png"></a>
+                        <a *ngIf="logado == true" href="carrinho" id="text-carrinho" class="text t2">Carrinho</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+   
+</header>

@@ -1,0 +1,104 @@
+p {
+    color: #29282E;
+    font-weight: 600;
+}
+
+p.active {
+    color: deepskyblue;
+}
+
+.balao {
+    border: 2px solid #000;
+    display: inline-block;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-weight: 500;
+}
+
+.balao.active {
+    border-color: deepskyblue;
+}
+
+.img-progresso {
+    margin: 10px;
+    width: 25px;
+}
+
+.box {
+    background-color: whitesmoke;
+    min-height: 250px;
+    margin: 15px;
+    border: 1px solid whitesmoke;
+    border-radius: 15px;
+}
+
+.box-shadow {
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    margin: 10px;
+    min-height: 200px;
+}
+
+.margin {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.img-width {
+    width: 200px;
+}
+
+.f-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+   margin: 20px;
+   font-size: 1rem;
+}
+
+.text {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-margin {
+    margin-top: 10px;
+}
+
+.row.active {
+    border: 1px solid deepskyblue;
+}
+
+.min {
+    min-height: 575px;
+}
+
+.padding {
+    padding: 10px;
+}
+
+@media (max-width: 800px) {
+    .img-width {
+        width: 150px;
+    }
+
+    .w-75 {
+      width: 95%!important;
+    }
+
+    p {
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        font-size: 0.85rem;
+    }
+}

@@ -1,0 +1,45 @@
+<div class="container d-flex align-items-end justify-content-center externo">
+    <div class="container interno">
+        <div class="row d-flex justify-content-center">
+            <div class="col" *ngFor="let item of items" class="produtos">
+                <div class="bloco">
+                    <div class="superior">
+                        <a class="link" href="detalhes?id={{item.id}}">
+                            <img class="grow"
+                                [src]="item.imagem || 'https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/Produtos/White.jpg'"
+                                alt="produto">
+                            <div class="titulo">
+                                <p><a href="detalhes?id={{item.id}}">{{item.nome}}</a></p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="inferior">
+                        <div class="preco">
+                            <h4>
+                                <span>R$ {{item.preco}}</span> à vista no boleto <br>
+                                <span class="texto_parcela">12x de R$ {{(item.preco / 12).toFixed(2)}} sem juros</span>
+                            </h4>
+                        </div>
+                        <div class="botao">
+                            <button type="button" class="btn btn-primary btn_comprar" (click)="comprar(item)" data-toggle="button"
+                                aria-pressed="false" autocomplete="off">
+                                COMPRAR
+                            </button>
+                            <button type="button" class="btn btn-primary btn_carrinho" (click)="addCarrinho(item)"
+                                data-toggle="button" aria-pressed="false" autocomplete="off">
+                                <img src="https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/cart4.svg"
+                                    alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="pagination align-items-end">
+            <li class="page-item"><a class="page-link" (click)="Pagination(-1)">Anterior</a></li>
+            <li class="page-item" *ngFor="let in of pages; let i = index" (click)="Pagination(i)"
+                [class.active]="i == current"><a class="page-link">{{i+1}}</a></li>
+            <li class="page-item"><a class="page-link" (click)="Pagination(null)">Proxima</a></li>
+        </ul>
+    </div>
+</div>

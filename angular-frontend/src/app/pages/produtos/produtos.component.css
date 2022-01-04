@@ -1,0 +1,97 @@
+.externo {
+    min-height: 600px;
+}
+
+.interno {
+    min-height: 500px;
+}
+
+#linhaPagina {
+    margin: 15px;
+}
+
+.produtos {
+    padding: 10px 0px 10px 0px;
+    width: 300px;
+    height: 400px;
+    margin: 15px
+}
+
+.bloco {
+    padding: 10px 0px 10px 0px;
+    border: rgb(177, 177, 177) solid 0.5px;
+}
+
+.bloco .superior {
+    text-align: center;
+    padding: 10px;
+}
+
+.bloco .superior img {
+    width: 180px;
+    padding: 0px 0px 15px 0px;
+}
+
+.bloco .superior .link {
+    text-decoration: none;
+}
+
+.bloco .superior .titulo p {
+    color: #363636;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+
+.bloco .inferior {
+    text-align: center;
+    padding: 10px;
+}
+
+.bloco .inferior {
+    text-align: center;
+    padding: 10px;
+}
+
+.bloco .inferior .preco h4 {
+    font-size: 0.9rem;
+    color: rgb(0, 207, 35);
+}
+
+.bloco .inferior .preco h4 span {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+
+.bloco .inferior .preco h4 .texto_parcela{
+    font-size: 0.9rem;
+    color: rgb(0, 68, 255);
+    font-weight: 600;
+}
+
+
+.bloco .inferior .botao button {
+    border-radius: 0;
+    height: 45px;
+}
+
+
+.bloco .inferior .botao .btn_comprar {
+    width: 190px;
+    font-weight: 600;
+    margin: 5px;
+}
+
+.bloco .inferior .botao .btn_carrinho img {
+    padding-bottom: 5px;   
+    border: none;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}

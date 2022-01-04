@@ -1,0 +1,83 @@
+<div class="conteiner f-column">
+    <div class="row box">
+        <div class="col">
+            <div class="row text-center">
+                <div class="col">
+                    <p class="title">{{item?.nome}}</p>
+                </div>
+            </div>
+            <div class="row padding d-flex flex-row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <img class="img-maior" [src]="getImage()"
+                        alt="produto">
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-3 d-flex justify-content-center">
+                            <img class="img-mini" (click)="changeImage(0)" [src]="item.imagem || 'https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/Produtos/White.jpg'"
+                            alt="produto" [class.active]="imagemAtual == 0">
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <img class="img-mini"  (click)="changeImage(1)" src="https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/Produtos/White.jpg"
+                            alt="produto" [class.active]="imagemAtual == 1">
+                        </div>
+                        <div class="col-3 d-flex justify-content-center">
+                            <img class="img-mini" (click)="changeImage(2)" src="https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/Produtos/White.jpg"
+                            alt="produto" [class.active]="imagemAtual == 2">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row margin">
+                                <div class="col d-flex align-items-end justify-content-center">
+                                    <button type="button" class="btn btn-primary btn_comprar" data-toggle="button" (click)="addCarrinho()"
+                                    aria-pressed="false" autocomplete="off">
+                                    + ADCIONAR NO CARRINHO
+                                </button>
+                                </div>
+                            </div>
+                            <div class="row text-center margin">
+                                <div class="col">
+                                    <p class="title green">R$ {{(item.preco * 0.85).toFixed(2)}}</p> à vista no boleto com 15% de desconto
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="divider">
+                                        OU
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row text-center margin">
+                                <div class="col">
+                                    <p class="subtitle">Parcelamento</p>
+                                    <p class="red">2x de R$ {{(item.preco / 2).toFixed(2)}}</p>
+                                    <p class="red">4x de R$ {{(item.preco / 4).toFixed(2)}}</p>
+                                    <p class="red">6x de R$ {{(item.preco / 6).toFixed(2)}}</p>
+                                    <p class="red">8x de R$ {{(item.preco / 8).toFixed(2)}}</p>
+                                    <p class="red">12x de R${{(item.preco / 12).toFixed(2)}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row box">
+        <div class="row w-100">
+            <div class="col text-center">
+                <p class="title">Sobre o produto</p>
+            </div>
+        </div>
+        <div class="row w-100" *ngFor="let especificacao of especificacoes">
+            <div class="col margin-left">
+                <p>{{ especificacao }}</p>
+            </div>
+        </div>
+    </div>
+</div>

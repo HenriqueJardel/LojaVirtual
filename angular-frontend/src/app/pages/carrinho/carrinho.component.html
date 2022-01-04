@@ -1,0 +1,190 @@
+<div class="conteiner min">
+    <div class="conteiner d-flex justify-content-center margin">
+        <div class="row w-75">
+            <div class="col f-column">
+                <p [class.active]="etapa == 0">Carrinho</p>
+                <div class="balao" [class.active]="etapa == 0">
+                    <span><img src="https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/carrinho.png"
+                            class="img-progresso"></span>
+                </div>
+            </div>
+            <div class="col f-column">
+                <p [class.active]="etapa == 1">Entrega</p>
+                <div class="balao" [class.active]="etapa == 1">
+                    <span><img src="https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/login.png"
+                            class="img-progresso"></span>
+                </div>
+            </div>
+            <div class="col f-column">
+                <p [class.active]="etapa == 2">Pagamento</p>
+                <div class="balao" [class.active]="etapa == 2">
+                    <span><img src="assets\credit-card.svg" class="img-progresso"></span>
+                </div>
+            </div>
+            <div class="col f-column">
+                <p [class.active]="etapa == 3">Finalizar</p>
+                <div class="balao" [class.active]="etapa == 3">
+                    <span><img src="assets\truck.svg" class="img-progresso"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="conteiner d-flex justify-content-center">
+        <div class="row w-75 box" *ngIf="etapa == 0">
+            <div class="row w-100 box-shadow" *ngFor="let item of items, let i = index">
+                <div class="col"><img
+                        [src]="item.produto.imagem || 'https://s3-sa-east-1.amazonaws.com/curso.spring.ionic.henrique/Produtos/White.jpg'"
+                        class="img-width"></div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <p>{{item.produto.nome}}</p>
+                </div>
+                <div class="col d-flex align-items-center justify-content-center">
+                    <button type="button" class="btn btn-danger m-2" (click)="aumetarQuantidade(i,-1)">-</button>
+                    <p>{{item.quantidade}}</p>
+                    <button type="button" class="btn btn-success m-2" (click)="aumetarQuantidade(i,1)">+</button>
+                </div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <p>R$ {{item.produto.preco}}</p>
+                </div>
+            </div>
+            <div class="row w-100 d-flex justify-content-end" *ngIf="etapa == 0">
+                <p> Total: R${{(total).toFixed(2)}}</p>
+            </div>
+            <div class="row w-100 padding">
+                <div class="col d-flex align-items-end justify-content-center">
+                    <button type="button" class="btn btn-primary" (click)="voltarIncio()">Voltar</button>
+                </div>
+                <div class="col d-flex align-items-end justify-content-center">
+                    <button type="button" class="btn btn-primary" (click)="Limpar()">Limpar Carrinho</button>
+                </div>
+                <div class="col d-flex align-items-end justify-content-center">
+                    <button type="button" class="btn btn-primary" (click)="Navegar(1)">Prosseguir</button>
+                </div>
+            </div>
+        </div>
+        <div class="row w-75 box" *ngIf="etapa == 1">
+            <div class="col">
+                <div class="row w-100">
+                    <div class="col">
+                        <p class="title">Selecione o endereço de entrega</p>
+                    </div>
+                    <div class="col d-flex justify-content-end align-items-center">
+                        <button type="button" class="btn btn-primary justify-content-end">Novo Endereço</button>
+                    </div>
+                </div>
+                <div class="row box-shadow" *ngFor="let endereco of enderecos; let i = index"
+                    [class.active]="enderecoSelecionado == i" (click)="selecionarEndereco(i)">
+                    <div class="col f-column justify-content-center">
+                        <p>Rua: {{endereco.logradouro}}</p>
+                        <p>Bairro: {{endereco.bairro}}</p>
+                        <p>Numero: {{endereco.numero}}</p>
+                        <p>Complemento: {{endereco.complemento}}</p>
+                    </div>
+                    <div class="col f-column justify-content-center">
+                        <p>CEP: {{endereco.cep}}</p>
+                        <p>Cidade: {{endereco.cidade.nome}}</p>
+                    </div>
+                </div>
+                <div class="row w-100 padding">
+                    <div class="col d-flex align-items-end justify-content-center">
+                        <button type="button" class="btn btn-primary" (click)="Navegar(-1)">Voltar</button>
+                    </div>
+                    <div class="col d-flex align-items-end justify-content-center">
+                        <button type="button" class="btn btn-primary" (click)="Navegar(1)">Prosseguir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row w-75 box" *ngIf="etapa == 2">
+            <div class="col f-column">
+                <div class="row w-100">
+                    <div class="col">
+                        <div class="menu">
+                            <p class="title">Selecione a forma de pagamento</p>
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link" (click)="selecionarPagamento(0)"
+                                        [class.active]="pagamento == 0"><img src="assets\credit-card.svg"> Cartão</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" (click)="selecionarPagamento(1)"
+                                        [class.active]="pagamento == 1"><img src="assets\upc.svg"> Boleto</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row w-75" *ngIf="pagamento == 0">
+                    <div class="col">
+                        <form>
+                            <p class="text">O Petabyte shop aceita as bandeiras de cartão VISA, MasterCard,<br> ELO,
+                                HiperCard, American Express e Diners.</p>
+                            <p>Forma de pagamento</p>
+                            <select class="custom-select my-1 mr-sm-2">
+                                <option (click)="selecionarParcelas(1)">A vista R$ {{(total).toFixed(2)}}</option>
+                                <option (click)="selecionarParcelas(2)">2x de R$ {{(total / 2).toFixed(2)}}</option>
+                                <option (click)="selecionarParcelas(4)">4x de R$ {{(total/ 4).toFixed(2)}}</option>
+                                <option (click)="selecionarParcelas(8)">8x de R$ {{(total / 8).toFixed(2)}}</option>
+                                <option (click)="selecionarParcelas(12)">12x de R$ {{(total / 12).toFixed(2)}}
+                                </option>
+                            </select>
+                            <p>Nome (escrito no cartão)</p>
+                            <input type="text" class="form-control mr-sm-2">
+                            <p>CPF/CNPJ do titular do cartão</p>
+                            <input type="text" class="form-control mr-sm-2">
+                            <p>Digite o numero do cartão</p>
+                            <input type="text" class="form-control mr-sm-2">
+                            <p>Código de segurança</p>
+                            <input type="text" class="form-control mr-sm-2">
+                            <p>Validade</p>
+                            <input class="form-control" type="month">
+                            <p>Data de nascimento</p>
+                            <input class="form-control" type="date">
+                        </form>
+                    </div>
+                </div>
+                <div class="row w-75" *ngIf="pagamento == 1">
+                    <div class="col f-column justify-content-center">
+                        <p class="text"> Ao escolher essa modalidade, você aproveita até 15% de desconto em sua
+                            compra.<br>
+                            Basta efetuar o pagamento do documento gerado pelo site via aplicativo<br>
+                            de sua instituição financeira, além de qualquer banco ou casa lotérica do país.<br>
+                            Prazo para baixa bancaria de até 2 dias uteis.
+                        </p>
+                        <div class="row w-75">
+                            <div class="col">
+                                <p style="color: red; font-size: 1rem;">Total</p>
+                                <p style="color: red; font-size: 1rem;">{{(total).toFixed(2)}}</p>
+                            </div>
+                            <div class="col">
+                                <p style="color: green; font-size: 1rem;">Com desconto</p>
+                                <p style="color: green; font-size: 1rem;">{{(total * 0.85).toFixed(2)}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row w-100 btn-margin padding">
+                    <div class="col d-flex align-items-end justify-content-center">
+                        <button type="button" class="btn btn-primary" (click)="Navegar(-1)">Voltar</button>
+                    </div>
+                    <div class="col d-flex align-items-end justify-content-center">
+                        <button type="button" class="btn btn-primary" (click)="finalizar()">Prosseguir</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row w-75 box" *ngIf="etapa == 3">
+            <div class="col f-column justify-content-center">
+                <p class="title">Compra finalizada com sucesso!</p>
+                <p> Estamos aguardando a confirmação do pagamento</p>
+                <p> Assim que confirmado o pedido será enviado</p>
+                <p>Pentabyte Shop agradece sua preferencia!</p>
+                <button type="button" class="btn btn-primary btn-margin" (click)="Limpar()">Finalizar</button>
+            </div>
+
+        </div>
+    </div>
+</div>

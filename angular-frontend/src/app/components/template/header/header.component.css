@@ -1,0 +1,97 @@
+header {
+    background-color: #f8f9fa!important;
+}
+/*div principal do header*/
+header .cabecalho {
+    position: relative;
+    justify-content: space-between;
+    width: 95%;
+    max-width: 1300px;
+    margin: auto; 
+    z-index: 20; 
+}
+/*Logo*/
+header .cabecalho a .logo {
+    width: 160px;  
+}
+/*Logo 2- desativado (ativado na responsividade)*/
+header .cabecalho .logo2 {
+    display: none;
+}
+/*Nav emcima do slider*/
+header .cabecalho nav {
+    z-index: 10;
+}
+/*div com o menu e a caixa de pesquisa dentro alinhados em block*/
+header .cabecalho nav .lista_form {
+    display: block;
+}
+/*texto do menu*/
+header .cabecalho nav .lista_form ul li a {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+/*botão buscar da caixa de pesquisa*/
+header .cabecalho nav .lista_form form button {
+    color: rgb(0, 110, 255);  
+    border: rgb(0, 110, 255) solid 1px; 
+    height: 30px;
+    font-size: 0.9rem;
+    padding-top: 2px;
+}
+/*hover do botão buscar da caixa de pesquisa*/
+header .cabecalho nav .lista_form form button:hover {
+    background-color: rgb(0, 110, 255);  
+    color: white;
+
+}
+/*input da caixa de pesquisa*/
+header .cabecalho nav .lista_form form input {
+    font-size: 0.9rem;
+    height: 30px;
+    width: 45vw;
+    max-width: 700px;
+}
+
+/*alinhando login/carrinho*/
+header .cabecalho .acesso {
+    margin-bottom: auto;
+}
+
+/*Img login/carrinho*/
+header .cabecalho .acesso div a img {
+    width: 20px;
+}
+
+header .cabecalho .acesso div {
+    margin-top: 15px;
+}
+
+/*Texto da lista login/carrinho*/
+header .cabecalho .acesso div .text{
+    margin: 0;
+    text-decoration: none;
+    color: #535353;
+    font-size: 0.9rem;
+    font-weight: 600;  
+    padding-left: 7px;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+/*Desativando padding direito do texto carrinho*/
+header .cabecalho .acesso div .t2{
+    padding-right: 0;
+}
+
+/*Efeito passar mouse por cima do Menu*/
+.grow:hover {
+    transition-duration: 0.2s;
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.04);
+}
+
+.header .menu-superior li a {
+    color: black;
+    text-decoration: none;
+}

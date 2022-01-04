@@ -1,0 +1,15 @@
+.sobre {
+    height: 700px;
+    text-align: center;
+    margin: 15px;
+}
+
+.sobre img {
+    width: 400px;
+}
+
+.sobre p {
+    margin: 10px;
+    font-size: 15px;
+    font-weight: 550;
+}   

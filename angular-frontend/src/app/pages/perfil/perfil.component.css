@@ -1,0 +1,198 @@
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteiner {
+    background-color: snow;
+    height: 900px;
+    width: 800px;
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-rows: 75px 175px 275px 350px;
+    border: 1px solid lightgray;
+    margin: 15px;
+}
+
+.conteiner .superior .title {
+    text-align: center;
+    font-weight: 550;
+    font-size: 18px;
+    color: #262626;
+    margin: 5px;
+}
+
+.conteiner .pagina-inicial {
+    grid-row-start: 2;
+    grid-row-end:5;
+    display: grid;
+    grid-template-rows: 175px 275px 350px;
+}
+
+.conteiner .pagina-inicial .dados {
+    margin: 10px;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 1px rgba(0,0,0,0.1);
+}
+
+.conteiner .pagina-inicial .dados .title {
+    font-weight: 550;
+    font-size: 17px;
+    color: #262626;
+}
+
+.conteiner .pagina-inicial .dados span {
+    color: #262626;
+    font-weight: 500;
+}
+
+.conteiner .pagina-inicial .dados a {
+    float: right;
+}
+
+.conteiner .enderecos {
+    margin: 10px;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 1px rgba(0,0,0,0.1);
+    overflow: auto;
+}
+
+.conteiner .pagina-inicial .enderecos .title {
+    font-weight: 550;
+    font-size: 17px;
+    color: #262626;
+}
+
+
+.conteiner .pagina-inicial .enderecos span {
+    color: #262626;
+    font-weight: 500;
+}
+
+.conteiner .pagina-inicial .enderecos .endereco {
+    display: grid;
+    grid-template-columns: 300px 300px 100px;
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.conteiner .pagina-inicial .enderecos .endereco p {
+    margin: 0;
+}
+
+.conteiner .pagina-inicial .enderecos .endereco .direita {
+    display: flex;
+    align-items: center;
+}
+
+.conteiner .pagina-inicial .pedidos {
+    margin: 10px;
+    overflow: auto;
+}
+
+.conteiner .pagina-inicial .pedidos p{
+    font-weight: 550;
+    font-size: 17px;
+    color: #262626;
+}
+
+.conteiner .pagina-inicial .pedidos span {
+    color: #262626;
+    font-weight: 500;
+}
+
+.conteiner .pagina-inicial .pedidos .pedido {
+    display: grid;
+    grid-template-columns: 300px 300px 100px;
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.conteiner .adcionar-endereco {
+    grid-row-start: 2;
+    grid-row-end:5;
+    margin: 15px;
+}
+
+.conteiner .adcionar-endereco form {
+    display: grid;
+    grid-template-rows: 710px 60px;
+    margin: 20px;
+}
+
+.conteiner .adcionar-endereco form .form-control{
+    width: 400px;
+    margin-bottom: 5px;
+}
+
+.conteiner .adcionar-endereco form .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+}
+
+.conteiner .adcionar-endereco form .row p{
+    margin-bottom: 5px;
+    color: #262626;
+    font-weight: 550;
+}
+
+.conteiner .alterar-dados {
+    grid-row-start: 2;
+    grid-row-end:5;
+}
+
+.conteiner .alterar-dados form {
+    display: grid;
+    grid-template-rows: 200px 75px 500px 50px;
+}
+
+.conteiner .alterar-dados .superior {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+.conteiner .alterar-dados .superior .esquerda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteiner .alterar-dados .superior .direita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteiner .alterar-dados p {
+    font-weight: 550;
+}
+
+.conteiner .alterar-dados form .form-control{
+    width: 300px;
+}
+
+.conteiner .alterar-dados form .custom-select {
+    width: 300px;
+}
+
+.conteiner .alterar-dados .meio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.conteiner .alterar-dados .inferior {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

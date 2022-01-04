@@ -1,0 +1,123 @@
+<section>
+    <div class="conteiner">
+        <div class="superior">
+            <p *ngIf="aba == 0" class="title">Perfil</p>
+            <p *ngIf="aba == 1" class="title">Alterar dados</p>
+            <p *ngIf="aba == 2" class="title">Adicionar Endereco</p>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" [class.active]="aba == 0" (click)="selecionarAba(0)"><img src="assets\person.svg">  Dados</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [class.active]="aba == 1" (click)="selecionarAba(1)"><img src="assets\arrow-left-right.svg">  Alterar dados</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [class.active]="aba == 2" (click)="selecionarAba(2)"><img src="assets\house.svg">  Adicionar Endereco</a>
+                </li>
+            </ul>
+        </div>
+        <div class="pagina-inicial" *ngIf="aba == 0">
+            <div class="dados">
+                <p class="title">Dados pessoais</p>
+                <p><span>Nome: </span>{{cliente?.nome}}</p> 
+                <p><span>Sobrenome: </span>{{cliente?.sobreNome}}</p>
+                <p><span>CPF: </span>{{cliente?.cpfOuCnpj}}</p>
+                <a href="#">Editar</a>
+            </div>
+            <div class="enderecos">
+                <p class="title">Endereços</p>
+                <div class="endereco" *ngFor="let endereco of enderecos">
+                    <div class="esquerda">
+                        <p><span>Rua: </span>{{endereco.logradouro}}</p>
+                        <p><span>Bairro: </span>{{endereco.bairro}}</p>
+                        <p><span>Numero: </span> {{endereco.numero}}</p>
+                        <p><span>Complemento: </span>{{endereco.complemento}}</p>
+                    </div>
+                    <div class="meio">
+                        <p><span>CEP: </span>{{endereco.cep}}</p>
+                        <p><span>Cidade: </span>{{endereco.cidade.nome}}</p>
+                        <p><span>Estado: </span> {{endereco.cidade.estado.nome}}</p>
+                    </div>
+                    <div class="direita">
+                        <a href="#">Editar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pedidos">
+                <div class="pedido" *ngFor="let pedido of pedidos">
+                    <div class="esquerda"><span>Numero do pedido:</span> {{pedido.id}}</div>
+                    <div class="meio"><span>Data:</span> {{pedido.data}}</div>
+                    <div class="direita"><span>Total: {{pedido.valorTotal}}</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="alterar-dados" *ngIf="aba == 1">
+            <form [formGroup]= "alterarDados">
+                <div class="superior">
+                    <div class="esquerda">
+                        <p>Nome</p>
+                        <input type="text" class="form-control mr-sm-2" formControlName="nome">
+                        <p>Sobrenome</p>
+                        <input type="text" class="form-control mr-sm-2" formControlName="sobreNome">
+                    </div>
+                    <div class="direita">
+                        <p>CPF/CNPJ</p>
+                        <input type="text" class="form-control mr-sm-2" formControlName="cpfOuCnpj">
+                        <p>E-mail</p>
+                        <input type="text" class="form-control mr-sm-2" formControlName="email">
+                    </div>
+                </div>
+                <div class="meio">
+                    <p>Selecione o endereço</p>
+                    <select class="custom-select">
+                        <option *ngFor="let endereco of enderecos, let i = index" (click)="selecionarEndereco(i)">Endereço {{i+1}}</option>
+                    </select>
+                </div>
+                <div class="inferior">
+                    <div class="endereco">
+                        <p>Rua</p>
+                        <input type="text" class="form-control mr-sm-2" formControlName="logradouro">
+                        <p>Numero</p>
+                        <input type="text" class="form-control mr-sm-2" formControlName="numero">
+                        <p>Bairro</p>
+                        <input type="text" class="form-control mr-sm-2" formControlName="bairro">
+                        <p>Complemento</p>
+                        <input type="text" class="form-control mr-sm-2" formControlName="complemento">
+                        <p>CEP</p>
+                        <input type="text" class="form-control mr-sm-2" formControlName="cep">
+                        <p>Cidade</p>
+                        <input type="text" class="form-control mr-sm-2" formControlName="cidade">
+                        <p>Estado</p>
+                        <input type="text" class="form-control mr-sm-2" formControlName="estado">
+                    </div>
+                </div>
+                <div class="btn">
+                    <button type="submit" class="btn btn-secondary">Salvar</button>
+                </div>
+            </form>
+        </div>
+        <div class="adcionar-endereco" *ngIf="aba == 2">
+            <form>
+                <div class="row">
+                    <p>Rua</p>
+                    <input type="text" class="form-control mr-sm-2" placeholder="Ex: Rua da batata">
+                    <p>Numero</p>
+                    <input type="text" class="form-control mr-sm-2" placeholder="Ex: 100">
+                    <p>Bairro</p>
+                    <input type="text" class="form-control mr-sm-2" placeholder="Ex: Batata">
+                    <p>Complemento</p>
+                    <input type="text" class="form-control mr-sm-2" placeholder="Ex: Perto do bar">
+                    <p>CEP</p>
+                    <input type="text" class="form-control mr-sm-2" placeholder="Ex: 00000-000">
+                    <p>Cidade</p>
+                    <input type="text" class="form-control mr-sm-2" placeholder="Ex: Batataguasu">
+                    <p>Estado</p>
+                    <input type="text" class="form-control mr-sm-2" placeholder="Ex: São Paulo">
+                </div>
+                <div class="btn">
+                    <button type="submit" class="btn btn-secondary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
