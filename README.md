@@ -12,6 +12,10 @@
 
 Projeto desenvolvido durante o curso Spring Boot, Hibernate, REST, Ionic, JWT, S3, MySQL, MongoDB.
 
+## Modelo Conceitual
+
+<img src="https://github.com/HenriqueJardel/LojaVirtual/blob/main/diagrama.png">
+
 ## Como executar o projeto
 
 Pré-requisitos: 
