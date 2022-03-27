@@ -33,6 +33,9 @@ git clone https://github.com/HenriqueJardel/LojaVirtual.git
 # entrar na pasta do projeto back end
 cd springboot2-backend
 
+# instalar o projeto
+mvn clean install
+  
 # executar o projeto
 ./mvnw spring-boot:run
 ```
